@@ -6,6 +6,10 @@
         <tr>
             <th style="background-color: #4CAF50; color: white; padding: 10px;">Elementos</th>
             <th style="background-color: #4CAF50; color: white; padding: 10px;"></th>
+            <th style="background-color: #4CAF50; color: white; padding: 10px;"></th>
+            <th style="background-color: #4CAF50; color: white; padding: 10px;"></th>
+
+
         </tr>
 
         {% for tarea in tareas %}
@@ -13,6 +17,9 @@
         <tr>
             <td style="border: 1px solid #ddd; padding: 8px;">{{ tarea.titulo }}</td>
             <td style="border: 1px solid #ddd; padding: 8px;"><a href="{% url 'tarea' tarea.id %}" style="text-decoration: none; background-color: #4CAF50; color: white; padding: 5px 10px; border-radius: 3px;">Ver</a></td>
+            <td style="border: 1px solid #ddd; padding: 8px;"><a href="{% url 'editar-tarea' tarea.id %}" style="text-decoration: none; background-color: #e5c93e; color: white; padding: 5px 10px; border-radius: 3px;">Editar</a></td>
+            <td style="border: 1px solid #ddd; padding: 8px;"><a href="{% url 'eliminar-tarea' tarea.id %}" style="text-decoration: none; background-color: #e24226; color: white; padding: 5px 10px; border-radius: 3px;">Eliminar</a></td>
+
         </tr>
 
         {% empty %}    
