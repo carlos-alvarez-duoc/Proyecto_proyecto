@@ -1,8 +1,12 @@
-<h1>Formulario de Tareas</h1>
-<a href="{% url 'tareas' %}">Volver</a>
+<div style="text-align: center; background-color: #f2f2f2; padding: 20px;">
 
-<form method="POST" action="">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Enviar">
-</form>
+    <h1 style="color: #333; margin-bottom: 20px;">Formulario de Tareas</h1>
+    <a href="{% url 'tareas' %}" style="background-color: #007bff; color: white; padding: 8px 16px; border-radius: 5px; text-decoration: none; margin-bottom: 20px; display: inline-block;">Volver</a>
+
+    <form method="POST" action="" style="width: 60%; margin: 0 auto;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Enviar" style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px; display: inline-block;">
+    </form>
+
+</div>
