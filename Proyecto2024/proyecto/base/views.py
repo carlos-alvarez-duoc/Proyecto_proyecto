@@ -1,37 +1,47 @@
-"""docstring"""
-from django.shortcuts import render
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 from .models import Tarea
+from django.views.generic import TemplateView
+
+class logueo(LoginView):
+    template_name = 'base/login.html'
+    field = '__all__'
+    redirect_authenticated_user = True
+    def get_success_url(self):
+        return reverse_lazy('tareas')
 
 class ListaPendientes(ListView):
-    """docstring"""
     model = Tarea
     context_object_name = 'tareas'
+    template_name = 'base/tareas.html'
 
 class DetalleTarea(DetailView):
-    """docstring"""
     model = Tarea
     context_object_name = 'tarea'
     template_name = 'base/tarea.html'
 
 class CrearTarea(CreateView):
-    """docstring"""
     model = Tarea
     fields = '__all__'
     success_url = reverse_lazy('tareas')
 
 class EditarTarea(UpdateView):
-    """docstring"""
     model = Tarea
     fields = '__all__'
     success_url = reverse_lazy('tareas')
 
 class EliminarTarea(DeleteView):
-    """docstring"""
     model = Tarea
     context_object_name = 'tarea'
     success_url = reverse_lazy('tareas')
 
+class Logout(LogoutView):
+    template_name = 'base/logout.html'
+
+
+class ProfileView(TemplateView):
+    template_name = 'profile.html'
+
+    

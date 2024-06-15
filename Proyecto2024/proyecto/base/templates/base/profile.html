@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Perfil de Usuario</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'lista-pendientes' %}">Lista de Pendientes</a></li>
+            <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Información del Perfil</h2>
+            <p><strong>Usuario:</strong> {{ user.username }}</p>
+            <p><strong>Nombre Completo:</strong> {{ user.get_full_name }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Tu Proyecto</p>
+    </footer>
+</body>
+</html>
